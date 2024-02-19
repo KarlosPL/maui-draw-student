@@ -1,0 +1,30 @@
+﻿^contentpage {
+    background-color: lightblue;
+    -maui-shell-background: teal;
+}
+
+#firstStackLayout {
+    padding: 100;
+}
+
+#secondStackLayout > * {
+    margin-top: 10;
+    margin-bottom: 10;
+}
+
+Button {
+    width: 200;
+    background-color: teal;
+}
+
+#thirdStackLayout > Label {
+    font-size: 24;
+}
+
+#label {
+    font-size: 30;
+}
+
+#classEntry {
+    background-color: floralwhite;
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="System_losowania_osoby_do_odpowiedzi.ManageStudentsPage"
+             Title="Zarządzaj uczniami">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/Resources/Styles/ManageStudentsPageStyle.css" />
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout x:Name="firstStackLayout">
+            <Grid x:Name="firstGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding ClassName, StringFormat='Zarządzaj uczniami klasy {0}'}" x:Name="firstLabel" Grid.Column="0" />
+                <Button Text="Dodaj nowego ucznia" Command="{Binding AddStudentCommand}" HorizontalOptions="End" Grid.Column="1" />
+            </Grid>
+            <CollectionView ItemsSource="{Binding Students}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="secondGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Number}" VerticalOptions="Center" x:Name="secondLabel" Grid.Column="0"/>
+                            <Entry Text="{Binding FirstName}" class="entry" Grid.Column="1" />
+                            <Entry Text="{Binding LastName}" class="entry" Grid.Column="2" />
+                            <Button Text="Edytuj" 
+                                    Command="{Binding Path=BindingContext.EditStudentCommand, 
+                                                        Source={RelativeSource AncestorType={x:Type ContentPage}}}" 
+                                    CommandParameter="{Binding .}" 
+                                    BackgroundColor="Teal"
+                                    Grid.Column="4" />
+                            <Button Text="Usuń"
+                                    Command="{Binding Path=BindingContext.DeleteStudentCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="Teal"
+                                    Grid.Column="5" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

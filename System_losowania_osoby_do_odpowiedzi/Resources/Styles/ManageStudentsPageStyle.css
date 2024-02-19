@@ -1,0 +1,34 @@
+﻿^contentpage {
+    background-color: lightblue;
+    -maui-shell-background: teal;
+}
+
+#firstStackLayout {
+    padding: 20;
+}
+
+#firstGrid {
+    padding: 10;
+}
+
+#firstLabel {
+    font-size: large;
+}
+
+#secondGrid {
+    padding: 10;
+    column-gap: 10;
+}
+
+#secondLabel {
+    font-size: 20;
+}
+
+.entry {
+    width: 300;
+    background-color: floralwhite;
+}
+
+Button {
+    background-color: teal;
+}

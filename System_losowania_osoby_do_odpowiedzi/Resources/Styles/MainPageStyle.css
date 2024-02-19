@@ -1,0 +1,21 @@
+﻿^contentpage {
+    background-color: lightblue;
+    -maui-shell-background: teal;
+}
+
+#firstStackLayout {
+    padding: 100;
+}
+
+#secondStackLayout {
+    margin-top: 150;
+}
+
+#label {
+    text-align: center;
+    font-size: 24;
+}
+
+Button {
+    background-color: teal;
+}

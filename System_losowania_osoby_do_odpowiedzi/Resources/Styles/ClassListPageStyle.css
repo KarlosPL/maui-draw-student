@@ -1,0 +1,62 @@
+﻿^contentpage {
+    background-color: lightblue;
+    -maui-shell-background: teal;
+}
+
+#firstStackLayout {
+    padding: 100,25;
+}
+
+#frame {
+    padding: 20;
+}
+
+^Frame {
+    font-size: medium;
+    background-color: gold;
+}
+
+#firstLabel {
+    padding: 15,0,0,0;
+}
+
+#secondStackLayout {
+    padding: 0,25;
+}
+
+#thirdStackLayout > * {
+    margin-bottom: 10;
+    margin-top: 10;
+}
+
+Button {
+    width: 200;
+}
+
+#secondLabel {
+    font-size: large;
+}
+
+#thirdLabel {
+    font-size: 24;
+    font-weight: bold;
+}
+
+#fourthLabel, #fifthLabel {
+    font-size: 20;
+}
+
+#fourthStackLayout {
+    margin: 0,50,0,0;
+}
+
+#sixthLabel {
+    font-size: medium;
+}
+
+#seventhLabel {
+    color: red;
+    font-size: medium;
+    font-style: italic;
+    text-align: center;
+}

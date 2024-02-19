@@ -1,0 +1,25 @@
+﻿^contentpage {
+    background-color: lightblue;
+    -maui-shell-background: teal;
+}
+
+#stackLayout {
+    padding: 100;
+}
+
+#stackLayout > Label, #stackLayout > Entry {
+    margin-top: 5;
+    margin-bottom: 5;
+}
+
+#stackLayout > Entry {
+    background-color: floralwhite;
+}
+
+#primaryButton {
+    width: 200;
+}
+
+Button {
+    background-color: teal;
+}

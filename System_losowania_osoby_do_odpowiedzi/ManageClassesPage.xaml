@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="System_losowania_osoby_do_odpowiedzi.ManageClassesPage"
+             xmlns:viewmodel="clr-namespace:System_losowania_osoby_do_odpowiedzi.ViewModels"
+             xmlns:model="clr-namespace:System_losowania_osoby_do_odpowiedzi.Models"
+             Title="Zarządzaj klasami">
+    
+    <ContentPage.Resources>
+        <StyleSheet Source="/Resources/Styles/ManageClassesPageStyle.css" />
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout x:Name="firstStackLayout">
+            <VerticalStackLayout x:Name="secondStackLayout">
+                <Label Text="Dodaj nową klasę" />
+                <Entry x:Name="classEntry" Placeholder="Wprowadź klasę" Text="{Binding EnteredClassName}" />
+                <Button Text="Dodaj klasę" HorizontalOptions="End" Command="{Binding AddNewClassCommand}" />
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="thirdStackLayout">
+                <Label Text="Zarządzaj klasami" />
+                <CollectionView ItemsSource="{Binding Classes}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding ClassName}" x:Name="label" Grid.Column="0" />
+                                <Button Text="Zarządzaj uczniami" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ClassesViewModel}}, Path=OpenManageStudentsCommand}" CommandParameter="{Binding .}" Grid.Column="1" />
+                                <Button Text="Usuń klasę" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ClassesViewModel}}, Path=RemoveClassCommand}" CommandParameter="{Binding .}" Grid.Column="2" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

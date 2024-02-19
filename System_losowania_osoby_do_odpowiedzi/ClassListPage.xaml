@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="System_losowania_osoby_do_odpowiedzi.ClassListPage"
+             Title="Wczytaj listę klasy i wylosuj osobę">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/Resources/Styles/ClassListPageStyle.css" />
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout x:Name="firstStackLayout">
+            <Frame x:Name="frame">
+                <HorizontalStackLayout>
+                    <Label Text="Szczęśliwy numerek: " />
+                    <Label Text="{Binding LuckyNumberDisplay}" x:Name="firstLabel" />
+                </HorizontalStackLayout>
+            </Frame>
+            <VerticalStackLayout x:Name="secondStackLayout">
+                <VerticalStackLayout x:Name="thirdStackLayout">
+                    <Label Text="Wybierz klasę z listy, aby wyświetlić listę uczniów z danej klasy" />
+                    <Picker ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" />
+                    <Button Text="Wyświetl listę" Command="{Binding ShowListCommand}" HorizontalOptions="End" />
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Label Text="{Binding DisplayedClass}" x:Name="secondLabel" />
+                    <CollectionView ItemsSource="{Binding FilteredStudents}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Number}" x:Name="thirdLabel" Grid.Column="0" VerticalOptions="Center" />
+                                    <Label Text="{Binding FirstName}" x:Name="fourthLabel" Grid.Column="1" VerticalOptions="Center" />
+                                    <Label Text="{Binding LastName}" x:Name="fifthLabel" Grid.Column="2" VerticalOptions="Center" />
+                                    <HorizontalStackLayout Grid.Column="4">
+                                        <Label Text="Obecny" VerticalOptions="Center" />
+                                        <CheckBox IsChecked="{Binding IsPresent}" CheckedChanged="OnCheckedChanged" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="fourthStackLayout">
+                    <Label Text="Wylosuj osobę z listy" x:Name="sixthLabel" />
+                    <Button Text="Losuj" Command="{Binding DrawStudentCommand}" HorizontalOptions="End" />
+                    <Label Text="{Binding RandomStudent}" x:Name="seventhLabel" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:System_losowania_osoby_do_odpowiedzi.ViewModels"
+             x:DataType="viewmodel:MainViewModel"
+             x:Class="System_losowania_osoby_do_odpowiedzi.MainPage">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/Resources/Styles/MainPageStyle.css" />
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout x:Name="firstStackLayout">
+            <Label x:Name="label" Text="System losowania osoby do odpowiedzi" />
+
+            <VerticalStackLayout x:Name="secondStackLayout">
+                <Button Text="Zarządzaj klasami" Command="{Binding ManageClassesCommand}" />
+                <Button Text="Wczytaj listę klasy i wylosuj osobę" Command="{Binding ShowClassListCommand}" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
+    
